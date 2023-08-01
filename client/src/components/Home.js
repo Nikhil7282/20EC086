@@ -22,6 +22,13 @@ function Home() {
     // console.log(res.data.data)
     setTrains(res.data.data);
   };
+
+  const getRandomColor = () => {
+    const colors = ['Primary','Secondary','Success','Danger','Warning','Info','Dark'];
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    return colors[randomIndex];
+  };
+
   return (
     <div>
       <Navbar bg="dark" expand="lg" variant="dark">
@@ -45,10 +52,10 @@ function Home() {
             if(train.departureTime.Hours!==0 && train.departureTime.Minutes>=30){
               return (
                 <Card
-              // bg={getRandomColor().toLowerCase()}
+              bg={getRandomColor().toLowerCase()}
               key={index}
               style={{ width: "18rem", margin: "10px" }}
-              // text={getRandomColor().toLowerCase() === 'light' ? 'dark' : 'white'}
+              text={getRandomColor().toLowerCase() === 'light' ? 'dark' : 'white'}
             >
               <Card.Body>
                 <Card.Title>{train.trainName}</Card.Title>
